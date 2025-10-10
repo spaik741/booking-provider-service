@@ -13,10 +13,9 @@ data class AddressEntity(
     @Column(name = "city")
     var city: String? = null,
     @Column(name = "home_number")
-    var homeNumber: Int? = null,
+    var homeNumber: String? = null,
     @Column(name = "country")
     var country: String? = null,
-    @OneToOne
-    @JoinColumn(name = "company_id")
+    @OneToOne(cascade = [CascadeType.ALL], mappedBy = "address", fetch = FetchType.LAZY)
     var company: CompanyEntity? = null
 )

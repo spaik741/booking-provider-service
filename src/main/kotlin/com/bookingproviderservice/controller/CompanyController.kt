@@ -20,7 +20,7 @@ class CompanyController(
         return ResponseEntity.status(HttpStatus.CREATED).build()
     }
 
-    @GetMapping("/company/{companyId}")
+    @GetMapping("/{companyId}")
     fun findCompany(@PathVariable companyId: Long): ResponseEntity<CompanyDto> {
         return ResponseEntity.ok(companyService.findCompany(companyId))
     }

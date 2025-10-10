@@ -9,7 +9,7 @@ data class AddressDto(
     @field:NotBlank
     var city: String? = null,
     @field:NotNull
-    var homeNumber: Int? = null,
+    var homeNumber: String? = null,
     @field:NotBlank
     var country: String? = null
 )

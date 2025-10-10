@@ -7,13 +7,13 @@ spring:
   datasource:
     username: user
     password: password
-    url: jdbc:postgresql://localhost:5431/provider_service_db
+    url: jdbc:postgresql://localhost:15432/provider_service_db
   flyway:
     locations: classpath:db/migration
   jpa:
     open-in-view: false
     hibernate:
-      ddl-auto: validate
+      ddl-auto: update
     properties:
       hibernate:
         format_sql: true

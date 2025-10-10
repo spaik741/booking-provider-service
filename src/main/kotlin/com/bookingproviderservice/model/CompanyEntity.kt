@@ -16,6 +16,7 @@ data class CompanyEntity(
     var website: String? = null,
     @Column(name = "phone")
     var phone: String? = null,
-    @OneToOne(cascade = [CascadeType.ALL], mappedBy = "address", fetch = FetchType.EAGER)
+    @OneToOne(cascade = [CascadeType.ALL])
+    @JoinColumn(name = "address_id")
     var address: AddressEntity? = null
 )

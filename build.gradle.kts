@@ -34,7 +34,7 @@ dependencies {
     implementation("org.mapstruct:mapstruct:1.5.5.Final")
     implementation("io.micrometer:micrometer-tracing-bridge-brave")
     implementation("io.zipkin.reporter2:zipkin-reporter-brave")
-    implementation("org.flywaydb:flyway-core")
+    implementation("org.flywaydb:flyway-core:9.22.3")
     runtimeOnly("org.postgresql:postgresql")
     kapt("org.mapstruct:mapstruct-processor:1.5.5.Final")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
