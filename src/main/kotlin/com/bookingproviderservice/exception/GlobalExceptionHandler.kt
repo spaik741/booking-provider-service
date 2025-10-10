@@ -1,5 +1,6 @@
-package com.bookingservice.exception
+package com.bookingproviderservice.exception
 
+import com.bookingservice.exception.ProviderServiceException
 import org.springframework.http.*
 import org.springframework.http.converter.HttpMessageNotReadableException
 import org.springframework.validation.FieldError
