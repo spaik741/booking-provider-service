@@ -18,13 +18,15 @@ class ScheduleController(
     fun createSchedules(
         @RequestParam(value = "companyId") companyId: Long, @RequestBody scheduleCreateRequest: ScheduleCreateRequest
     ): ResponseEntity<ScheduleResponse> {
-        return ResponseEntity.ok(scheduleService.createSchedules(companyId, scheduleCreateRequest))
+        return ResponseEntity.status(HttpStatus.CREATED)
+            .body(scheduleService.createSchedules(companyId, scheduleCreateRequest))
     }
 
     @PostMapping("/book")
     fun bookSchedule(
-        @RequestParam(value = "companyName") companyName: String, @RequestParam(value = "dateTime") dateTime: LocalDateTime
+        @RequestParam(value = "companyName") companyName: String,
+        @RequestParam(value = "dateTime") dateTime: LocalDateTime
     ): ResponseEntity<BookRecordResponse> {
-        return ResponseEntity.status(HttpStatus.CREATED).body(scheduleService.bookRecord(companyName, dateTime))
+        return ResponseEntity.ok(scheduleService.bookRecord(companyName, dateTime))
     }
 }
