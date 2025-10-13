@@ -26,7 +26,7 @@ class CompanyServiceImpl(
 
     override fun findCompany(companyId: Long): CompanyDto {
         return companyRepository.findById(companyId)
-            .getOrElse { throw ProviderServiceException(HttpStatus.NO_CONTENT, "company not found") }
+            .getOrElse { throw ProviderServiceException(HttpStatus.NOT_FOUND, "company not found") }
             .let { companyEntity -> companyMapper.mapToDto(companyEntity)!! }
     }
 }

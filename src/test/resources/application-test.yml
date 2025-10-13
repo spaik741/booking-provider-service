@@ -8,3 +8,10 @@ spring:
     url: jdbc:tc:postgresql:16.1:///test_database
     username: user
     password: password
+
+server:
+  servlet:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
