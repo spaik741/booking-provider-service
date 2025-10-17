@@ -33,6 +33,12 @@ spring:
         max-interval: 2000
         multiplier: 1.1
       label: master
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8080/realms/booking-realm
+
 
 management:
   endpoints:
