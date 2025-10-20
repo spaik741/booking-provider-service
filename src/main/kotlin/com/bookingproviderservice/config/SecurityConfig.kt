@@ -32,10 +32,6 @@ class SecurityConfig {
                 .requestMatchers("/v1/provider/company/**").hasRole("COMPANY")
                 .anyRequest().authenticated()
         }
-//        http.securityMatcher("/v1/provider/schedule/book**") { c ->
-//            c.authorizeHttpRequests {
-//                authorize(anyRequest, permitAll)
-//            }
 
         return http.build()
     }

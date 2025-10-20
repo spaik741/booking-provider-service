@@ -35,6 +35,7 @@ class CompanyControllerTest : BaseMvcTest() {
             .readText(Charsets.UTF_8)
         val result = mockMvc.perform(
             post("$PATH/registration")
+                .with(ROLE_COMPANY)
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(createRequest)
         )
@@ -52,6 +53,7 @@ class CompanyControllerTest : BaseMvcTest() {
             .readText(Charsets.UTF_8)
         val result = mockMvc.perform(
             post("$PATH/registration")
+                .with(ROLE_COMPANY)
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(createRequest)
         )
@@ -69,6 +71,7 @@ class CompanyControllerTest : BaseMvcTest() {
             .readText(Charsets.UTF_8)
         mockMvc.perform(
             post("$PATH/registration")
+                .with(ROLE_COMPANY)
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(createRequest)
         ).andExpect(MockMvcResultMatchers.status().isConflict)
@@ -80,6 +83,7 @@ class CompanyControllerTest : BaseMvcTest() {
             .readText(Charsets.UTF_8)
         val result = mockMvc.perform(
             get("$PATH/101")
+                .with(ROLE_COMPANY)
         ).andReturn()
         assertEquals(response, result.response.contentAsString)
         assertEquals(200, result.response.status)
@@ -89,6 +93,7 @@ class CompanyControllerTest : BaseMvcTest() {
     fun findCompanyNotFound() {
         val result = mockMvc.perform(
             get("$PATH/666")
+                .with(ROLE_COMPANY)
         ).andReturn()
         assertEquals(404, result.response.status)
     }

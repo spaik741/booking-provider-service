@@ -31,7 +31,9 @@ class ScheduleControllerTest : BaseMvcTest() {
         val createRequest = javaClass.getResource("/json/scheduleRegistrationRequest.json")!!.readText(Charsets.UTF_8)
         val expectedResponse = javaClass.getResource("/json/scheduleResponse.json")!!.readText(Charsets.UTF_8)
         val result = mockMvc.perform(
-            post("$PATH/registration").param("companyId", "101").contentType(MediaType.APPLICATION_JSON)
+            post("$PATH/registration").param("companyId", "101")
+                .with(ROLE_COMPANY)
+                .contentType(MediaType.APPLICATION_JSON)
                 .content(createRequest)
         ).andReturn()
         assertEquals(201, result.response.status)
@@ -44,7 +46,9 @@ class ScheduleControllerTest : BaseMvcTest() {
     fun registryScheduleNotExistCompany() {
         val createRequest = javaClass.getResource("/json/scheduleRegistrationRequest.json")!!.readText(Charsets.UTF_8)
         val result = mockMvc.perform(
-            post("$PATH/registration").param("companyId", "999").contentType(MediaType.APPLICATION_JSON)
+            post("$PATH/registration").param("companyId", "999")
+                .with(ROLE_COMPANY)
+                .contentType(MediaType.APPLICATION_JSON)
                 .content(createRequest)
         ).andReturn()
         assertEquals(404, result.response.status)
